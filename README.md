@@ -1,0 +1,3 @@
+# dotfiles
+
+Ricing on Arch

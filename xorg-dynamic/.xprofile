@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# Make sure this is before the 'exec' command or it won't be executed.
+# Source xprofile to start compton automatically
+#[ -f /etc/xprofile ] && . /etc/xprofile
+#[ -f ~/.xprofile ] && . ~/.xprofile
+
+# Make terminus fonts available
+#xset +fp /usr/share/fonts/local
+#xset fp rehash
+# Key repeat delay, rate (per second)
+#xset r rate 230 45
+
+#if [ -e /dev/ttyUSB2 ]; then pon; fi &
+# back ticks!!!! nothing else works.
+#eval `cat $HOME/.fehbg` &
+#status.sh &
+#tmux start-server &
+#startdwm.sh
+#until wmii; do
+#   true
+#done
+xset -dpms; xset s off
+xset s off &
+xset -b &
+#xrdb -load $HOME/.Xresources &
+setxkbmap -layout 'ee,us'
+setxkbmap -variant 'dvorak,'
+setxkbmap -option 'grp:shift_toggle,grp_led:scroll,compose:menu'
+# Debian Jessie
+xrandr --output HDMI-A-0 --primary --auto --output DVI-I-0 --off
+#xrandr --output HDMI1 --primary --auto --output VGA1  --right-of HDMI1 --auto
+# not executing?
+#urxvt -e "mocp -S; sleep 1; mocp -G"
+#mocp -S; mocp -p; sleep 1; mocp -G
+
+# Udisksvm disk automounting
+#udisksvm >/dev/null &
+#udiskie -s &
+#compton -cGbfF -i 1.0 -e 0.7 -o 0.8 -l -9 -t -10 &
+
+# Starting emacs daemon with proper user configuration file.
+#emacs -u user --daemon --eval "(setq default-frame-alist \ '((font-backend . \"xft\") (font . \"Terminus-12\")))" -l ~/.emacs &
+
+#Use XToolkit in java applications
+export AWT_TOOLKIT=XToolkit
+
+# put this in .xinitrc
+export SSH_ASKPASS=seahorse-ssh-askpass
+# if use-ssh-agent is specified in /etc/X11/Xsession.options
+# (this is the default) then you need only the second line
+#eval ssh-agent
+#ssh-add
+### do this with keychain
+#keychain ~/.ssh/id_rsa
+#[ -f ~/.keychain/$HOSTNAME-sh ] && . ~/.keychain/$HOSTNAME-sh 2>/dev/null
+#[ -f ~/.keychain/$HOSTNAME-sh-gpg ] && . ~/.keychain/$HOSTNAME-sh-gpg 2>/dev/null
+
+#Use exo-open exo-preferred applications (requires exo)
+#export DE="xfce"
+
+# Start i3 and log to ~/.local/share/i3.log
+#echo "Starting at $(date)" >> ~/.local/share/i3.log
+# exec ck-launch-session i3
+#exec /usr/bin/i3 -V -d all >> ~/.local/share/i3.log
+#exec i3
+#exec openbox-session
+#exec /usr/bin/pasystray

@@ -1,0 +1,77 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# The following line should contain a sharp s:
+# ß
+
+general {
+        colors = true
+        interval = 5
+}
+
+order += "volume master"
+order += "disk /home/"
+order += "disk /media/pool/"
+order += "cpu_usage"
+order += "cpu_temperature 0"
+#order += "cpu_temperature 1"
+order += "load"
+order += "time"
+#order += "tztime GMT"
+#order += "tztime EST"
+#order += "tztime PST"
+
+time {
+        format = "%Y-%m-%d %a %H:%M:%S"
+}
+
+#tztime GMT {
+#        format = "GMT:%m-%d %H:%M"
+#	timezone = "GMT"
+#}
+#
+#tztime EST {
+#        format = "EST:%m-%d %H:%M"
+#	timezone = "US/Eastern"
+#}
+#
+#tztime PST {
+#        format = "PST:%m-%d %H:%M"
+#	timezone = "US/Pacific"
+#}
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "pulse:1"
+#        mixer = "Master"
+#        mixer_idx = 0
+}
+
+load {
+        format = "%1min"
+}
+
+cpu_temperature 0 {
+	format = "%degrees °C"
+	max_threshold = 70
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
+
+#cpu_temperature 1 {
+#	format = "GPU:%degrees °C"
+#	max_threshold = 80
+#	path = "/sys/class/hwmon/hwmon3/temp1_input"
+#}
+
+cpu_usage {
+	format = "CPU %usage \%"
+}
+
+disk "/home/" {
+        format = "%free"
+}
+
+disk "/media/pool/" {
+        format = "%free"
+}
