@@ -1,0 +1,6 @@
+adv_windowlist.pl 
+hilightwin.pl 
+notify.pl # from irssi-libnotify, with autorun notify.py. Messages by Dbus
+tmux_away.pl 
+usercount.pl
+#mouse.pl fucks up text selection in X11

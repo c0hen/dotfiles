@@ -1,0 +1,9 @@
+[user]
+	email = user@mail.com
+        name = user
+[push]
+	default = simple
+[credential]
+	helper = store
+[pull]
+	rebase = true
